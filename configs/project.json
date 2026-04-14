@@ -9,7 +9,8 @@
     "forecast",
     "cities"
   ],
-  "accent": "#3d5a80",
+  "accent": "#a1c82c",
+  "secondary_accent": "#a9332c",
   "dashboard_metrics": [
     {
       "label": "Model Lift",
@@ -45,5 +46,52 @@
     "The primary value proposition is: Forecast congestion and package decisions for city ops, routing, and planning teams.",
     "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.",
     "Typical stakeholders include analytics, operations, product, and leadership teams working on traffic, forecast, cities."
+  ],
+  "app_archetype": "planner",
+  "ui_profile": {
+    "layout": "board",
+    "surface": "slate",
+    "font_stack": "\"Space Grotesk\", \"Segoe UI\", sans-serif",
+    "radius": 25,
+    "shadow": 69,
+    "eyebrow_style": "soft",
+    "module_columns": 2,
+    "hero_align": "left",
+    "headline_mode": "compact"
+  },
+  "app_modules": [
+    {
+      "label": "Scenario 01",
+      "title": "Forecast Input Studio",
+      "description": "Model a planning scenario from the primary business and operational levers.",
+      "endpoint": "/score",
+      "input_mode": "json",
+      "cta": "Run Scenario",
+      "prefill": "{\n  \"features\": {\n    \"engagement_score\": 87,\n    \"tenure_days\": 225,\n    \"payment_miss_count\": 1,\n    \"segment\": \"enterprise\",\n    \"priority_flag\": true\n  }\n}",
+      "hint": "Forecast confidence and planning band will appear here.",
+      "span": "normal"
+    },
+    {
+      "label": "Scenario 02",
+      "title": "Variance Explorer",
+      "description": "Explain how actual metrics differ from the expected planning baseline.",
+      "endpoint": "/analyze",
+      "input_mode": "json",
+      "cta": "Analyze Variance",
+      "prefill": "{\n  \"metrics\": {\n    \"acquisition\": 46.5,\n    \"activation\": 44.5,\n    \"retention\": 56.0,\n    \"revenue\": 92.5\n  },\n  \"baseline\": {\n    \"acquisition\": 42.78,\n    \"activation\": 40.94,\n    \"retention\": 51.52,\n    \"revenue\": 85.1\n  }\n}",
+      "hint": "Variance summary and largest movement will appear here.",
+      "span": "wide"
+    },
+    {
+      "label": "Scenario 03",
+      "title": "Planning Memo",
+      "description": "Turn raw scenario inputs into a concise operational recommendation.",
+      "endpoint": "/recommend",
+      "input_mode": "json",
+      "cta": "Draft Memo",
+      "prefill": "{\n  \"prompt\": \"Recommend the next best action for Smart City Traffic Forecast.\",\n  \"features\": {\n    \"engagement_score\": 87,\n    \"tenure_days\": 225,\n    \"payment_miss_count\": 1,\n    \"segment\": \"enterprise\",\n    \"priority_flag\": true\n  },\n  \"metrics\": {\n    \"acquisition\": 46.5,\n    \"activation\": 44.5,\n    \"retention\": 56.0,\n    \"revenue\": 92.5\n  }\n}",
+      "hint": "Decision memo and next steps will appear here.",
+      "span": "normal"
+    }
   ]
 }

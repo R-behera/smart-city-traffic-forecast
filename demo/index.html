@@ -6,13 +6,12 @@
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <title>Smart City Traffic Forecast</title>
           <link rel="stylesheet" href="./styles.css">
-          <style>:root { --accent: #3d5a80; }</style>
         </head>
-        <body>
-          <div class="page">
+        <body class="surface-slate">
+          <div class="page layout-board eyebrow-soft headline-compact modules-2 hero-align-left">
             <section class="hero">
               <div class="panel hero-copy">
-                <span class="eyebrow">Predictive Application</span>
+                <span class="eyebrow" data-health>Planning Workspace</span>
                 <h1 id="project-title">Smart City Traffic Forecast</h1>
                 <p id="project-summary" class="lead">Forecast congestion and package decisions for city ops, routing, and planning teams.</p>
                 <ul id="project-tags" class="tag-list">
@@ -26,55 +25,90 @@
 <article class='card'><span>Data Freshness</span><strong>4h</strong><em>steady</em></article>
                 </div>
                 <div class="mini-grid">
-                  <article class='mini-card'><span>Project Type</span><strong>ML</strong></article><article class='mini-card'><span>Domain</span><strong>Urban Data</strong></article><article class='mini-card'><span>Interface</span><strong>FastAPI + Browser UI</strong></article><article class='mini-card'><span>Deployment</span><strong>Docker + CI</strong></article>
+                  <article class='mini-card'><span>Project Type</span><strong>ML</strong></article><article class='mini-card'><span>Domain</span><strong>Urban Data</strong></article><article class='mini-card'><span>Application</span><strong>Planning Workspace</strong></article><article class='mini-card'><span>Deployment</span><strong>Docker + CI</strong></article>
                 </div>
               </div>
             </section>
             <section class="app-grid">
-              <article class="panel module">
-                <div class="module-header">
-                  <span>Application 01</span>
-                  <h2>Scoring Workbench</h2>
-                  <p>Edit feature inputs and simulate a production prediction pass.</p>
-                </div>
-                <textarea id="score-input"></textarea>
-                <div class="button-row">
-                  <button id="run-score">Run Scoring</button>
-                  <button id="load-defaults" class="secondary" type="button">Reload Defaults</button>
-                </div>
-                <pre id="score-output"></pre>
-              </article>
-              <article class="panel module">
-                <div class="module-header">
-                  <span>Application 02</span>
-                  <h2>KPI Comparison</h2>
-                  <p>Compare current metrics against a baseline and surface the biggest movement.</p>
-                </div>
-                <textarea id="analyze-input"></textarea>
-                <div class="button-row">
-                  <button id="run-analyze">Run Analysis</button>
-                </div>
-                <pre id="analyze-output"></pre>
-              </article>
-              <article class="panel module">
-                <div class="module-header">
-                  <span>Application 03</span>
-                  <h2>Operator Brief</h2>
-                  <p>Ask for a grounded recommendation built from local project context.</p>
-                </div>
-                <textarea id="query-input" class="query-input"></textarea>
-                <div class="button-row">
-                  <button id="run-query">Run Query</button>
-                </div>
-                <pre id="query-output"></pre>
-              </article>
+              <article class="panel module js-module span-normal">
+          <div class="module-header">
+            <span>Scenario 01</span>
+            <h2>Forecast Input Studio</h2>
+            <p>Model a planning scenario from the primary business and operational levers.</p>
+          </div>
+          <textarea class="js-input">{
+  &quot;features&quot;: {
+    &quot;engagement_score&quot;: 87,
+    &quot;tenure_days&quot;: 225,
+    &quot;payment_miss_count&quot;: 1,
+    &quot;segment&quot;: &quot;enterprise&quot;,
+    &quot;priority_flag&quot;: true
+  }
+}</textarea>
+          <div class="button-row">
+            <button class="js-run" data-endpoint="/score" data-input-mode="json">Run Scenario</button>
+          </div>
+          <pre class="js-output">Forecast confidence and planning band will appear here.</pre>
+        </article>
+<article class="panel module js-module span-wide">
+          <div class="module-header">
+            <span>Scenario 02</span>
+            <h2>Variance Explorer</h2>
+            <p>Explain how actual metrics differ from the expected planning baseline.</p>
+          </div>
+          <textarea class="js-input">{
+  &quot;metrics&quot;: {
+    &quot;acquisition&quot;: 46.5,
+    &quot;activation&quot;: 44.5,
+    &quot;retention&quot;: 56.0,
+    &quot;revenue&quot;: 92.5
+  },
+  &quot;baseline&quot;: {
+    &quot;acquisition&quot;: 42.78,
+    &quot;activation&quot;: 40.94,
+    &quot;retention&quot;: 51.52,
+    &quot;revenue&quot;: 85.1
+  }
+}</textarea>
+          <div class="button-row">
+            <button class="js-run" data-endpoint="/analyze" data-input-mode="json">Analyze Variance</button>
+          </div>
+          <pre class="js-output">Variance summary and largest movement will appear here.</pre>
+        </article>
+<article class="panel module js-module span-normal">
+          <div class="module-header">
+            <span>Scenario 03</span>
+            <h2>Planning Memo</h2>
+            <p>Turn raw scenario inputs into a concise operational recommendation.</p>
+          </div>
+          <textarea class="js-input">{
+  &quot;prompt&quot;: &quot;Recommend the next best action for Smart City Traffic Forecast.&quot;,
+  &quot;features&quot;: {
+    &quot;engagement_score&quot;: 87,
+    &quot;tenure_days&quot;: 225,
+    &quot;payment_miss_count&quot;: 1,
+    &quot;segment&quot;: &quot;enterprise&quot;,
+    &quot;priority_flag&quot;: true
+  },
+  &quot;metrics&quot;: {
+    &quot;acquisition&quot;: 46.5,
+    &quot;activation&quot;: 44.5,
+    &quot;retention&quot;: 56.0,
+    &quot;revenue&quot;: 92.5
+  }
+}</textarea>
+          <div class="button-row">
+            <button class="js-run" data-endpoint="/recommend" data-input-mode="json">Draft Memo</button>
+          </div>
+          <pre class="js-output">Decision memo and next steps will appear here.</pre>
+        </article>
             </section>
             <footer class="footer">
-              <span>Data Science + AI + LLM + RAG Portfolio</span>
+              <span>Urban Data • ML • Planning Workspace</span>
               <span>smart-city-traffic-forecast</span>
             </footer>
           </div>
-          <script id="bootstrap-data" type="application/json">{"project": {"slug": "smart-city-traffic-forecast", "title": "Smart City Traffic Forecast", "project_type": "ml", "domain": "Urban Data", "summary": "Forecast congestion and package decisions for city ops, routing, and planning teams.", "tags": ["traffic", "forecast", "cities"]}, "sample_features": {"engagement_score": 87, "tenure_days": 225, "payment_miss_count": 1, "segment": "enterprise", "priority_flag": true}, "sample_metrics": {"acquisition": 46.5, "activation": 44.5, "retention": 56.0, "revenue": 92.5}, "sample_query": "What is the top priority recommendation?", "knowledge_base": ["Smart City Traffic Forecast is positioned as a Urban Data starter that emphasizes fast iteration, clear documentation, and production-friendly interfaces.", "The primary value proposition is: Forecast congestion and package decisions for city ops, routing, and planning teams.", "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.", "Typical stakeholders include analytics, operations, product, and leadership teams working on traffic, forecast, cities."], "dashboard_metrics": [{"label": "Model Lift", "value": "82%", "delta": "+6.4%"}, {"label": "Serving P95", "value": "135ms", "delta": "-12ms"}, {"label": "Data Freshness", "value": "4h", "delta": "steady"}]}</script>
+          <script id="bootstrap-data" type="application/json">{"project": {"slug": "smart-city-traffic-forecast", "title": "Smart City Traffic Forecast", "project_type": "ml", "domain": "Urban Data", "summary": "Forecast congestion and package decisions for city ops, routing, and planning teams.", "tags": ["traffic", "forecast", "cities"]}, "app_archetype": "planner", "ui_profile": {"layout": "board", "surface": "slate", "font_stack": "\"Space Grotesk\", \"Segoe UI\", sans-serif", "radius": 25, "shadow": 69, "eyebrow_style": "soft", "module_columns": 2, "hero_align": "left", "headline_mode": "compact"}, "app_modules": [{"label": "Scenario 01", "title": "Forecast Input Studio", "description": "Model a planning scenario from the primary business and operational levers.", "endpoint": "/score", "input_mode": "json", "cta": "Run Scenario", "prefill": "{\n  \"features\": {\n    \"engagement_score\": 87,\n    \"tenure_days\": 225,\n    \"payment_miss_count\": 1,\n    \"segment\": \"enterprise\",\n    \"priority_flag\": true\n  }\n}", "hint": "Forecast confidence and planning band will appear here.", "span": "normal"}, {"label": "Scenario 02", "title": "Variance Explorer", "description": "Explain how actual metrics differ from the expected planning baseline.", "endpoint": "/analyze", "input_mode": "json", "cta": "Analyze Variance", "prefill": "{\n  \"metrics\": {\n    \"acquisition\": 46.5,\n    \"activation\": 44.5,\n    \"retention\": 56.0,\n    \"revenue\": 92.5\n  },\n  \"baseline\": {\n    \"acquisition\": 42.78,\n    \"activation\": 40.94,\n    \"retention\": 51.52,\n    \"revenue\": 85.1\n  }\n}", "hint": "Variance summary and largest movement will appear here.", "span": "wide"}, {"label": "Scenario 03", "title": "Planning Memo", "description": "Turn raw scenario inputs into a concise operational recommendation.", "endpoint": "/recommend", "input_mode": "json", "cta": "Draft Memo", "prefill": "{\n  \"prompt\": \"Recommend the next best action for Smart City Traffic Forecast.\",\n  \"features\": {\n    \"engagement_score\": 87,\n    \"tenure_days\": 225,\n    \"payment_miss_count\": 1,\n    \"segment\": \"enterprise\",\n    \"priority_flag\": true\n  },\n  \"metrics\": {\n    \"acquisition\": 46.5,\n    \"activation\": 44.5,\n    \"retention\": 56.0,\n    \"revenue\": 92.5\n  }\n}", "hint": "Decision memo and next steps will appear here.", "span": "normal"}], "sample_features": {"engagement_score": 87, "tenure_days": 225, "payment_miss_count": 1, "segment": "enterprise", "priority_flag": true}, "sample_metrics": {"acquisition": 46.5, "activation": 44.5, "retention": 56.0, "revenue": 92.5}, "knowledge_base": ["Smart City Traffic Forecast is positioned as a Urban Data starter that emphasizes fast iteration, clear documentation, and production-friendly interfaces.", "The primary value proposition is: Forecast congestion and package decisions for city ops, routing, and planning teams.", "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.", "Typical stakeholders include analytics, operations, product, and leadership teams working on traffic, forecast, cities."], "dashboard_metrics": [{"label": "Model Lift", "value": "82%", "delta": "+6.4%"}, {"label": "Serving P95", "value": "135ms", "delta": "-12ms"}, {"label": "Data Freshness", "value": "4h", "delta": "steady"}]}</script>
           <script src="./app.js"></script>
         </body>
         </html>
