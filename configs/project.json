@@ -1,0 +1,49 @@
+{
+  "slug": "smart-city-traffic-forecast",
+  "title": "Smart City Traffic Forecast",
+  "project_type": "ml",
+  "domain": "Urban Data",
+  "summary": "Forecast congestion and package decisions for city ops, routing, and planning teams.",
+  "tags": [
+    "traffic",
+    "forecast",
+    "cities"
+  ],
+  "accent": "#3d5a80",
+  "dashboard_metrics": [
+    {
+      "label": "Model Lift",
+      "value": "82%",
+      "delta": "+6.4%"
+    },
+    {
+      "label": "Serving P95",
+      "value": "135ms",
+      "delta": "-12ms"
+    },
+    {
+      "label": "Data Freshness",
+      "value": "4h",
+      "delta": "steady"
+    }
+  ],
+  "sample_features": {
+    "engagement_score": 87,
+    "tenure_days": 225,
+    "payment_miss_count": 1,
+    "segment": "enterprise",
+    "priority_flag": true
+  },
+  "sample_metrics": {
+    "acquisition": 46.5,
+    "activation": 44.5,
+    "retention": 56.0,
+    "revenue": 92.5
+  },
+  "knowledge_base": [
+    "Smart City Traffic Forecast is positioned as a Urban Data starter that emphasizes fast iteration, clear documentation, and production-friendly interfaces.",
+    "The primary value proposition is: Forecast congestion and package decisions for city ops, routing, and planning teams.",
+    "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.",
+    "Typical stakeholders include analytics, operations, product, and leadership teams working on traffic, forecast, cities."
+  ]
+}
